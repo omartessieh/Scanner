@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Blank </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  [fullscreen]="true"
+  [style.--background]="scanActive?'#00000000':'#ffffff'"
+>
+  <ion-button
+    expand="full"
+    (click)="startScanner()"
+    *ngIf="scanActive === false"
+  >
+    SCAN
+  </ion-button>
+
+  <ion-row class="scan-button" *ngIf="scanActive === true">
+    <ion-col class="ion-no-padding">
+      <ion-button expand="full" (click)="stopScanner()">Stop</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <div class="scan-box" *ngIf="scanActive  === true"></div>
+
+  <ion-button (click)="open()">Open Website</ion-button>
+</ion-content>
